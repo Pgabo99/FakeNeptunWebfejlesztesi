@@ -1,0 +1,31 @@
+<main class="main-content">
+
+  <div>
+    <ng-container *ngIf="!data">
+      <h1>Regisztráció</h1>
+
+      <form [formGroup]="register" (submit)="addUser()">
+
+        <mat-form-field>
+          <mat-label for="email">Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="pat@example.com">
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-label for="password">Jelszó</mat-label>
+          <input matInput formControlName="password" type="password" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label for="passwordagain">Jelszó</mat-label>
+          <input matInput formControlName="passwordagain" type="password" required>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Regisztráció</button>
+        <button mat-raised-button color="accent" routerLink="/login" type="button">Bejelentkezés</button>
+      </form>
+    </ng-container>
+    <app-data *ngIf="data" [email]="emailForNew"></app-data>
+  </div>
+</main>

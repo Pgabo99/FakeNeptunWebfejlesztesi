@@ -1,0 +1,70 @@
+<main class="main-content">
+
+  <div>
+    <h1>Kurzus felvétele</h1>
+
+    <form [formGroup]="course" (submit)="addCourse()">
+      <mat-form-field>
+        <mat-label for="name">Kurzus neve</mat-label>
+        <input matInput formControlName="name" placeholder="Webfejlesztési keretrendszerek" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="classRoom">Terem neve</mat-label>
+        <input matInput formControlName="classRoom" placeholder="Irinyi 217" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Típus</mat-label>
+        <mat-select formControlName="type" required="">
+          <mat-option value="Előadás">Előadás</mat-option>
+          <mat-option value="Labor">Labor</mat-option>
+          <mat-option value="Gyakorlat">Gyakorlat</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Nyelv</mat-label>
+        <mat-select formControlName="language" required="">
+          <mat-option value="Magyar">Magyar</mat-option>
+          <mat-option value="Angol">Angol</mat-option>
+          <mat-option value="Német">Német</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="credit">Kredit</mat-label>
+        <input matInput formControlName="credit" type="number" placeholder="4" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="studentNumber">Létszám</mat-label>
+        <input matInput formControlName="studentNumber" type="number" placeholder="60" min="0" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Nap</mat-label>
+        <mat-select formControlName="day" required="">
+          <mat-option value="Hétfő">Hétfő</mat-option>
+          <mat-option value="Kedd">Kedd</mat-option>
+          <mat-option value="Szerda">Szerda</mat-option>
+          <mat-option value="Csütörtök">Csütörtök</mat-option>
+          <mat-option value="Péntek">Péntek</mat-option>
+          <mat-option value="Szombat">Szombat</mat-option>
+          <mat-option value="Vasárnap">Vasárnap</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="from">Mettől</mat-label>
+        <input matInput formControlName="from" placeholder="Time" [ngxTimepicker]="picker" required>
+        <ngx-material-timepicker #picker></ngx-material-timepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="to">Meddig</mat-label>
+        <input matInput formControlName="to" placeholder="Time" [ngxTimepicker]="pickerto" required>
+        <ngx-material-timepicker #pickerto></ngx-material-timepicker>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Kurzus felvétele</button>
+    </form>
+  </div>
+</main>

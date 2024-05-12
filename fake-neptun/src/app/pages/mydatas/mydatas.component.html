@@ -1,0 +1,167 @@
+<div class="main-content">
+  <div>
+    <h1>Adataim</h1>
+    <form [formGroup]="students" *ngIf="szerkesztheto&&student!=null">
+      <mat-form-field>
+        <mat-label for="name">Név</mat-label>
+        <input matInput formControlName="name" placeholder="{{student.name}}">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="email">Email</mat-label>
+        <input matInput name="email" value="{{student.email}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="role">Szerepkör</mat-label>
+        <input matInput name="role" value="{{student.role}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Szak</mat-label>
+        <mat-select formControlName="kar" placeholder="{{student.major}}">
+          <mat-option value="TTIK Programtervező informatikus BSc">TTIK Programtervező informatikus BSc</mat-option>
+          <mat-option value="TTIK Mérnökinformatikus BSc">TTIK Mérnökinformatikus BSc</mat-option>
+          <mat-option value="TTIK Gazdaságinformatikus BSc">TTIK Gazdaságinformatikus BSc</mat-option>
+          <mat-option value="TTIK Villamosmérnök BSc">TTIK Villamosmérnök BSc</mat-option>
+          <mat-option value="TTIK Üzemmérnök-informatikus BProf">TTIK Üzemmérnök-informatikus BProf</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="studentNumber">Diák szám</mat-label>
+        <input matInput type="number" formControlName="studentNumber" placeholder="{{student.studentNumber}}">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="age">Életkor</mat-label>
+        <input matInput type="number" formControlName="age" placeholder="{{student.age}}">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="button" (click)="studentUpdate()">Mentés</button>
+      <button mat-raised-button color="primary" type="button" (click)="deleteStudent()">Törlés</button>
+      <button mat-raised-button color="primary" type="button" (click)="szerkesztheto=false">Mégse</button>
+    </form>
+
+
+    <form *ngIf="!szerkesztheto&&student!=null">
+      <mat-form-field>
+        <mat-label for="nev">Név</mat-label>
+        <input matInput name="nev" value="{{student.name}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="email">Email</mat-label>
+        <input matInput name="email" value="{{student.email}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="role">Szerepkör</mat-label>
+        <input matInput name="role" value="{{student.role}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Szak</mat-label>
+        <mat-select name="kar" value="{{student.major}}" [disabled]=true>
+          <mat-option value="TTIK Programtervező informatikus BSc">TTIK Programtervező informatikus BSc</mat-option>
+          <mat-option value="TTIK Mérnökinformatikus BSc">TTIK Mérnökinformatikus BSc</mat-option>
+          <mat-option value="TTIK Gazdaságinformatikus BSc">TTIK Gazdaságinformatikus BSc</mat-option>
+          <mat-option value="TTIK Villamosmérnök BSc">TTIK Villamosmérnök BSc</mat-option>
+          <mat-option value="TTIK Üzemmérnök-informatikus BProf">TTIK Üzemmérnök-informatikus BProf</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="role">Diák szám</mat-label>
+        <input matInput type="number" name="role" value="{{student.studentNumber}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="role">Életkor</mat-label>
+        <input matInput type="number" name="role" value="{{student.age}}" readonly>
+      </mat-form-field>
+      <button *ngIf="!szerkesztheto" mat-raised-button color="primary" type="button"
+        (click)="szerkesztheto=true">Szerkesztés</button>
+    </form>
+
+
+    <form *ngIf="!szerkesztheto&&teacher!=null">
+
+      <mat-form-field>
+        <mat-label>Oktatás</mat-label>
+        <mat-select name="oktatas" value="{{teacher.workTime}}" [disabled]=true>
+          <mat-option value="Nappali">Nappali</mat-option>
+          <mat-option value="Esti">Esti</mat-option>
+          <mat-option value="Levelezős">Levelezős</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="names">Név</mat-label>
+        <input matInput name="names" placeholder="Vezetéknév Keresztnév" value="{{teacher.name}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="emails">Email</mat-label>
+        <input matInput name="emails" value="{{teacher.email}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="roles">Szerepkör</mat-label>
+        <input matInput name="roles" value="{{teacher.role}}" readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="idcardnumber">Személyi szám</mat-label>
+        <input matInput name="idcardnumber" placeholder="37......." value="{{teacher.idCardNumber}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="ages">Életkor</mat-label>
+        <input matInput type="number" name="ages" placeholder="22" value="{{teacher.age}}" readonly>
+      </mat-form-field>
+
+
+      <button *ngIf="!szerkesztheto" mat-raised-button color="primary" type="button"
+        (click)="szerkesztheto=true">Szerkesztés</button>
+    </form>
+    <form [formGroup]="teachers" *ngIf="szerkesztheto&&teacher!=null">
+
+      <mat-form-field>
+        <mat-label>Oktatás</mat-label>
+        <mat-select formControlName="oktatas" placeholder="{{teacher.workTime}}">
+          <mat-option value="Nappali">Nappali</mat-option>
+          <mat-option value="Esti">Esti</mat-option>
+          <mat-option value="Levelezős">Levelezős</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="name">Név</mat-label>
+        <input matInput formControlName="name" placeholder="{{teacher.name}}">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="email">Email</mat-label>
+        <input matInput name="email" value="{{teacher.email}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="role">Szerepkör</mat-label>
+        <input matInput name="role" value="{{teacher.role}}" readonly>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="idCardNumber">Személyi szám</mat-label>
+        <input matInput formControlName="idCardNumber" placeholder="{{teacher.idCardNumber}}">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label for="age">Életkor</mat-label>
+        <input matInput type="number" formControlName="age" placeholder="{{teacher.age}}">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="button" (click)="teacherUpdate()">Mentés</button>
+      <button mat-raised-button color="primary" type="button" (click)="deleteTeacher()">Felhasználó törlés</button>
+      <button mat-raised-button color="primary" type="button" (click)="szerkesztheto=false">Mégse</button>
+    </form>
+  </div>
+
+</div>

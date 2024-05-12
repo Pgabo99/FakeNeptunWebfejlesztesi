@@ -1,0 +1,43 @@
+<div class="main-content">
+  <h1>{{data.thisClass.name}}-{{data.thisClass.type}}</h1>
+  <form>
+
+    <mat-form-field>
+      <mat-label for="name">Terem</mat-label>
+      <input matInput name="name" value="{{data.thisClass.classRoom}}" readonly>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="name">Oktató</mat-label>
+      <input matInput name="name" value="{{data.thisClass.teacher}}" readonly>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="name">Időpont</mat-label>
+      <input matInput name="name" value="{{data.thisClass.day}} {{data.thisClass.from}} - {{data.thisClass.to}}"
+        readonly>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="name">Kredit</mat-label>
+      <input matInput name="name" value="{{data.thisClass.credit}}" readonly>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="name">Jegy</mat-label>
+      <input matInput [ngStyle]="{color: grade()=='Még nincs eredmény' ? 'Red': 'Green'}" name="name"
+        value="{{grade()}}" readonly>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="name">Nyelv</mat-label>
+      <input matInput name="name" value="{{data.thisClass.language}}" readonly>
+    </mat-form-field>
+
+
+    <div [ngStyle]="{color: data.thisClass.accepted ? 'Green': 'Red'}">{{acceptedE()}}</div>
+
+    <button mat-raised-button color="primary" type="button" (click)="leadas()" mat-dialog-close="">Kurzus
+      leadása</button>
+  </form>
+</div>

@@ -1,0 +1,18 @@
+<div class="main-content">
+    <h1>{{data.thisClass.studentName}}</h1>
+
+    <form [formGroup]="classGroup">
+
+        <mat-form-field>
+            <mat-label for="grade">Jegy</mat-label>
+            <input type="number" matInput formControlName="grade" placeholder="5" min="0" max="5">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="button" (click)="updateClass()" mat-dialog-close="">Jegy
+            szerkesztése</button>
+        <button mat-raised-button *ngIf="!data.thisClass.accepted" type="button" color="primary" (click)="jovahagy()"
+            mat-dialog-close="">Jóváhagyás</button>
+        <button mat-raised-button color="primary" type="button" (click)="levetel()" mat-dialog-close="">Hallgató
+            ledobása</button>
+    </form>
+</div>

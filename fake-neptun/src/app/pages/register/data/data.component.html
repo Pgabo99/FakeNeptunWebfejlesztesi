@@ -1,0 +1,66 @@
+<div>
+  <h1>Adatok</h1>
+  <button mat-raised-button color="primary" type="submit" (click)="jogChange()" style="width: 60%;">{{jog}}</button>
+
+  <form [formGroup]="students" *ngIf="jog=='Hallgató'">
+
+    <mat-form-field>
+      <mat-label>Szak</mat-label>
+      <mat-select formControlName="kar" required="">
+        <mat-option value="TTIK Programtervező informatikus BSc">TTIK Programtervező informatikus BSc</mat-option>
+        <mat-option value="TTIK Mérnökinformatikus BSc">TTIK Mérnökinformatikus BSc</mat-option>
+        <mat-option value="TTIK Gazdaságinformatikus BSc">TTIK Gazdaságinformatikus BSc</mat-option>
+        <mat-option value="TTIK Villamosmérnök BSc">TTIK Villamosmérnök BSc</mat-option>
+        <mat-option value="TTIK Üzemmérnök-informatikus BProf">TTIK Üzemmérnök-informatikus BProf</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="name">Név</mat-label>
+      <input matInput formControlName="name" placeholder="Vezetéknév Keresztnév" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="studentnumber">Diák szám</mat-label>
+      <input matInput type="number" formControlName="studentnumber" placeholder="72......." required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="age">Életkor</mat-label>
+      <input matInput type="number" formControlName="age" placeholder="12" required>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" type="submit" (click)="addStudent()">Mentés</button>
+  </form>
+
+  <form [formGroup]="teachers" *ngIf="jog=='Oktató'">
+
+    <mat-form-field>
+      <mat-label>Oktatás</mat-label>
+      <mat-select formControlName="oktatas" required="">
+        <mat-option value="Nappali">Nappali</mat-option>
+        <mat-option value="Esti">Esti</mat-option>
+        <mat-option value="Levelezős">Levelezős</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="name">Név</mat-label>
+      <input matInput formControlName="name" placeholder="Vezetéknév Keresztnév" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="number">Személyi szám</mat-label>
+      <input matInput formControlName="number" placeholder="37......." required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="age">Életkor</mat-label>
+      <input matInput type="number" formControlName="age" placeholder="22" required>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" type="submit" (click)="addTeacher()">Mentés</button>
+  </form>
+</div>

@@ -1,0 +1,21 @@
+<div class="main-content">
+  <table>
+    <thead>
+      <tr>
+        <th>Diák neve</th>
+        <th>Értékelés</th>
+        <th>Jóváhagyva</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let item of classInput; index as i;">
+        <td (click)="reszletek(item)">{{item.studentName}}</td>
+        <td (click)="reszletek(item)" [ngStyle]="{color: grade(item.grade)=='Még nincs eredmény' ? 'Red': 'Green'}">
+          {{grade(item.grade)}}</td>
+        <td (click)="reszletek(item)" [ngStyle]="{color:item.accepted ? 'Green': 'Red'}">{{acceptedE(item.accepted)}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,6 @@
+<div class="main-content">
+    <h1>Kurzusaim</h1>
+    <select (change)="reload()" [(ngModel)]="chosenCourse">
+        <option *ngFor="let obj of courses" [ngValue]="obj.id">{{obj.name}}</option>
+    </select>
+</div>

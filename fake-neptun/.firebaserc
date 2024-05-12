@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fake-neptun": {
+      "hosting": {
+        "fake-neptun": [
+          "fake-neptun"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fake-neptun"
+  }
+}

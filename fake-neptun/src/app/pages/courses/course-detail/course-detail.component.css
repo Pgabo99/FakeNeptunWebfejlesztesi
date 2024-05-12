@@ -1,0 +1,38 @@
+h1 {
+  margin: 40px
+}
+
+form {
+  width: 60%;
+  display: block;
+  align-self: center;
+  align-items: center;
+  margin: 25px auto;
+  justify-content: center;
+}
+
+
+
+mat-form-field {
+  width: 100%;
+}
+
+
+button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.timepicker-overlay {
+  z-index: 10000000 !important;
+}
+
+.timepicker-backdrop-overlay {
+  z-index: 10000000 !important;
+}
+
+.btn {
+  background-color: #673ab7;
+  color: white;
+  cursor: not-allowed;
+}

@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+}
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    cursor: pointer;
+    ;
+}
+
+th {
+    text-align: center;
+    font-weight: 300;
+    font-size: 24px;
+}
